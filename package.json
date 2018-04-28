@@ -1,0 +1,29 @@
+{
+  "name": "mean",
+  "version": "1.0.0",
+  "description": "MEAN stack Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaharshiChetan/MEAN-Stack.git"
+  },
+  "keywords": [
+    "MEAN",
+    "Stack",
+    "Application"
+  ],
+  "author": "Chetan Maharshi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaharshiChetan/MEAN-Stack/issues"
+  },
+  "homepage": "https://github.com/MaharshiChetan/MEAN-Stack#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.0.16"
+  }
+}
