@@ -1,5 +1,5 @@
 /* ====================
-   Impoer Node Modules
+   Import Node Modules
 ==================== */
 const express = require("express"); // Fast, unopinionated, minimalist web framework for node
 const app = express(); // Initiate Express Application
@@ -9,6 +9,8 @@ const config = require("./config/database"); // Mongoose Config
 const path = require("path"); // NodeJS Package for file paths
 const authentication = require("./routes/authentication")(router);
 const bodyParser = require("body-parser");
+var morgan = require('morgan'); // For loging all requests
+const cors = require('cors');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.uri, (err) => {
@@ -19,11 +21,16 @@ mongoose.connect(config.uri, (err) => {
    }
 });
 
-// Provide static directory for frontend
+app.use(cors({
+   origin: 'http://localhost:4200',
+}));
+
+app.use(morgan('dev'));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
+// Provide static directory for frontend
 app.use(express.static(__dirname + "/client/dist/"));
 app.use('/authentication', authentication);
 
